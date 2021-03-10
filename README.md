@@ -31,27 +31,11 @@ For testing purposes, I've included a sample.
     
      .log" // File name to log to
   },
-  "apis": {
-    "musicbrainz": {
-      "url": "http://musicbrainz.org/ws/2", // MusicBrainz API URL
-      "defaultEntity": "artist" // Default entity to query for
-    },
-    "wikidata": {
-      "url": "https://www.wikidata.org/w/api.php", // WikiData API URL
-      "defaultLanguage": "en" // Default language
-    },
-    "wikipedia": {
-      "url": "https://en.wikipedia.org/w/api.php" // Wikipedia API URL
-    },
-    "coverArtArchive": {
-      "url": "http://coverartarchive.org/" // CoverArtArchive API URL
-    }
-  },
   "cache": {
     "ttl": 3600, // Time in seconds to store in cache
     "checkperiod": 600, // The period in seconds used for the automatic delete check
     "namespaces": {
-      "musicinfo": "musicinfo_" // namespace key in cache for musicinfo REST API queries.
+      "general": "general_" // namespace key in cache for REST API queries.
     }
   }
 }
@@ -64,8 +48,7 @@ A message will appear if the applicatiomn started correctly:
 `Server is running in process 57999 listening on PORT 8080`
 
 ## Usage
-Go to `http://localhost:8080/music-info/?musicBrainzId=5b11f4ce-a62d-471e-81fc-a69a8278c7da` to see all info about Nirvana.
-The query parameter musicBrainzId is a MBID (https://musicbrainz.org/doc/MusicBrainz_Identifier).
+Go to `http://localhost:8080/status` to see the status.
 
 ## Developing
 Open a terminal and cd to the root of the project. Start the application by running `npm run dev`.
