@@ -1,0 +1,37 @@
+openapi: 3.0.1
+info:
+  title: REST API
+  description: Description of API
+  contact:
+    email: joerid@gmail.com
+  license:
+    name: MIT License
+    url: https://choosealicense.com/licenses/mit/
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+tags:
+- name: REST API
+  description: Everything about REST API
+  externalDocs:
+    description: Find out more
+    url: http://swagger.io
+paths:
+  /status:
+    get:
+      tags:
+      - Status
+      summary: Health check endpoint
+      responses:
+        200:
+          description: Success
+components:
+  schemas:
+    ApiErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
