@@ -1,6 +1,6 @@
-# MusicInfo API
+# Name of API
 
-Get information about artist, artist's albums and wikipedia description.
+Description of API.
 
 ## Prerequisites
 
