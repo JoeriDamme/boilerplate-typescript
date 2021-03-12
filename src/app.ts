@@ -2,19 +2,19 @@ import express, { Request, Response, Router, NextFunction } from 'express';
 import http from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import AppError from '@lib/app-error';
-import sendError from '@helpers/error-handling';
-import logger from '@lib/logger';
-import statusRoutes from '@routes/status-routes';
-import docRoutes from '@routes/docs-routes';
-import swaggerUi from 'swagger-ui-express';
 import morgan from 'morgan';
-import httpContext from 'express-http-context';
 import uniqid from 'uniqid';
+import httpContext from 'express-http-context';
+import swaggerUi from 'swagger-ui-express';
+import { AppError } from '@lib/app-error';
+import { sendError } from '@helpers/error-handling';
+import { logger } from '@lib/logger';
+import { docRoutes } from '@routes/docs-routes';
+import { statusRoutes } from '@routes/status-routes';
 
 const log = logger.child({ method: 'app' });
 
-interface ApplicationRouter {
+interface IApplicationRouter {
   handler: Router;
   middleware: any[];
   path: string;
@@ -43,7 +43,7 @@ export default class App {
    */
   private setRoutes(): void {
     log.debug('Setup express routes...');
-    const routes: ApplicationRouter[] = [
+    const routes: IApplicationRouter[] = [
       {
         handler: statusRoutes,
         middleware: [],
@@ -56,7 +56,7 @@ export default class App {
       },
     ];
 
-    routes.forEach((route: ApplicationRouter) => this.app.use(route.path, route.middleware, route.handler));
+    routes.forEach((route: IApplicationRouter) => this.app.use(route.path, route.middleware, route.handler));
 
     this.app.use((request: Request, response: Response, next: NextFunction) => {
       const error = new AppError('Endpoint not found', 404);

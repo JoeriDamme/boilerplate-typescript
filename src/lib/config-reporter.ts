@@ -2,14 +2,14 @@ import config from 'config';
 // import dotenv from 'dotenv';
 import lodash from 'lodash';
 
-interface printConfigOptions {
+interface IPrintConfigOptions {
   logger: {
     info(arg1: string): void; 
   };
 }
 
 export default class ConfigReport {
-  public static printConfig(options: printConfigOptions): void {
+  public static printConfig(options: IPrintConfigOptions): void {
     const logger = options.logger;
     // clone current config
     const cloneFinalConfig: any = lodash.cloneDeep(config);

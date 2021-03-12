@@ -1,4 +1,4 @@
-export default class AppError extends Error {
+export class AppError extends Error {
   // HTTP status code.
   statusCode: number;
 

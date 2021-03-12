@@ -2,7 +2,7 @@ import winston, { createLogger, format } from 'winston';
 import httpContext from 'express-http-context';
 import config from 'config';
 
-const logger = createLogger({
+export const logger = createLogger({
   level: config.get('logger.level'),
   format: format.combine(
     format.timestamp(),
@@ -22,5 +22,3 @@ const logger = createLogger({
     }),
   ],
 });
-
-export default logger;

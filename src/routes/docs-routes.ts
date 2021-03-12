@@ -5,6 +5,6 @@ import yaml from 'yamljs';
 // YAML to JSON the swagger docs.
 const swaggerDocument = yaml.load('./swagger.yaml');
 
-export default Router()
+export const docRoutes = Router()
   .get('/', swaggerUi.setup(swaggerDocument));
   

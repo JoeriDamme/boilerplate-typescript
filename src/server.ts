@@ -3,7 +3,7 @@ import * as dotenv from 'dotenv';
 import http from 'http';
 import App from './app';
 import ConfigReport from '@lib/config-reporter';
-import logger from '@lib/logger';
+import { logger } from '@lib/logger';
 const log = logger.child({ method: 'server' });
 
 dotenv.config();

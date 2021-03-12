@@ -1,22 +1,27 @@
 import { Logger } from 'winston';
 import axios from 'axios';
 
-interface RequesterOptions {
-  queryParameters?: RequesterQueryParameters;
+interface IRequesterOptions {
+  queryParameters?: IRequesterQueryParameters;
   path?: string;
 }
 
-interface RequesterQueryParameters {
+interface IRequesterQueryParameters {
   [key: string]: string;
 }
 
-export default class Requester {
+/**
+ * Requester class.
+ * A wrapper class for an HTTP library. In case that you don't want to use Axios anymore,
+ * you can replace the library in this class.
+ */
+export class Requester {
   private url: string;
   private path: string | undefined;
-  private queryParameters: RequesterQueryParameters;
+  private queryParameters: IRequesterQueryParameters;
   private log: Logger;
 
-  constructor(url: string, options: RequesterOptions = {}, log: Logger) {
+  constructor(url: string, options: IRequesterOptions = {}, log: Logger) {
     this.url = url;
     this.path = options.path;
     this.queryParameters = options.queryParameters || {};

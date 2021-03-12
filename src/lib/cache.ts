@@ -1,9 +1,9 @@
 import NodeCache from 'node-cache';
 import { Logger } from 'winston';
 import config from 'config';
-import logger from '@lib/logger';
+import { logger } from '@lib/logger';
 
-export default class Cache {
+export class Cache {
   private static instance: Cache
   private cache: NodeCache;
   private log: Logger;

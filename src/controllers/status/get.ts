@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import logger from '@lib/logger';
+import { logger } from '@lib/logger';
 
 const log = logger.child({ method: 'controllers/status/get' });
 
